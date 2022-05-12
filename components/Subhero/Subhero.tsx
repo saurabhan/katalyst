@@ -1,5 +1,4 @@
 import React from 'react'
-import {GoogleLogo, AppleLogo} from '../../public/assets/icons'
 import {FaGoogle, FaApple, FaFacebook, FaTwitter, FaSpotify, FaMicrosoft} from 'react-icons/fa'
 
 interface Props {}
