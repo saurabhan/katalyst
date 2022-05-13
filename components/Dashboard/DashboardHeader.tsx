@@ -1,5 +1,6 @@
 import { Avatar } from '@nextui-org/react'
 import { useEffect, useState } from 'react'
+import { useAuth } from '../../context/auth-context'
 
 interface Props {}
 interface quoteProps{
@@ -10,6 +11,8 @@ interface quoteProps{
 }
 
 const DashboardHeader = (props: Props) => {
+    const { user } = useAuth()
+    console.log(user)
     const quoteURL = 'https://stoicquotesapi.com/v1/api/quotes/random'
     
     const quote = async () => {
@@ -30,7 +33,7 @@ const DashboardHeader = (props: Props) => {
     <div className='container mx-auto p-6 m-4'>
         <div className='flex gap-5'>
         <Avatar/>
-        <h1 className='text-3xl font-bold'>Hello, Saurabh</h1>
+        <h1 className='text-3xl font-bold'>Hello, {user?.displayName}</h1>
 
         </div> 
         <blockquote className='text-xl font-serif italic tracking-wide p-6 mt-4 text-center'>{quoteData?.body}</blockquote>
