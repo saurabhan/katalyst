@@ -61,7 +61,7 @@ const login = (props: Props) => {
                 </div>
               </div>
                 <div className="text-sm">
-                  <Link href="/login" shallow={true} >
+                  <Link href="login" shallow={true} >
                     <a onClick={() => setLogin(!login)}  className="font-medium text-center text-rose-600 hover:text-rose-500">{login ? 'Create a new Account' : 'Sign In to Exisitng Account'}</a>
                   </Link>
                 </div>

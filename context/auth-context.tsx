@@ -32,18 +32,18 @@ interface ProviderProps {
   children: React.ReactNode
 }
 
+export const useAuth = () => useContext(AuthContext)
 export const AuthProvider = ({ children }: ProviderProps) => {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | ''>('')
   const router = useRouter()
-
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user)
         setLoading(false)
-        router.push('/dashboard')
+        router.push('dashboard')
       } else {
         setUser(null)
         setLoading(true)
@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }: ProviderProps) => {
       .then((credentials) => {
         setUser(credentials.user)
         setLoading(false)
-        router.push('/dashboard')
+        router.push('dashboard')
       })
       .catch((error) => {
         setError(error.message)
@@ -81,7 +81,7 @@ export const AuthProvider = ({ children }: ProviderProps) => {
         })
         setUser(credentials.user)
         setLoading(false)
-        router.push('/dashboard')
+        router.push('dashboard')
       })
       .catch((error) => {
         setError(error.message)
@@ -122,6 +122,5 @@ export const AuthProvider = ({ children }: ProviderProps) => {
   )
 }
 
-export const useAuth = () => useContext(AuthContext)
 
 

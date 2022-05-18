@@ -12,7 +12,6 @@ interface quoteProps{
 
 const DashboardHeader = (props: Props) => {
     const { user } = useAuth()
-    console.log(user)
     const quoteURL = 'https://stoicquotesapi.com/v1/api/quotes/random'
     
     const quote = async () => {

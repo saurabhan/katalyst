@@ -16,7 +16,7 @@ const Navbar = (props: Props) => {
         <Link href="/" >
            <h1 className='text-2xl tracking-wider uppercase font-bold cursor-pointer'>Katalyst</h1>
         </Link>
-        {user !== null ? <div  className='flex items-center font-bold'><Link href="/Dashboard" ><a className='hover:text-pink-400 transition-all'>Dashboard</a></Link></div> : 
+        {user !== null ? <div  className='flex items-center font-bold'><Link href="dashboard" ><a className='hover:text-pink-400 transition-all'>Dashboard</a></Link></div> : 
         
         <div className='hidden md:flex items-center justify-center gap-x-8 font-medium '>
             
