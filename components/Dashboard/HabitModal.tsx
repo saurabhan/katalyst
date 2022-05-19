@@ -30,7 +30,7 @@ const HabitModal = (props: any) => {
 
 
   return (
-    <Card className="absolute inset-0 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+    <Card className="absolute inset-0 py-5 dark:bg-gray-500 bg-white shadow rounded-lg overflow-hidden sm:p-6">
           <Card.Header className="flex justify-between">
             <h1 className="text-3xl font-bold">Add New Habits</h1>
             <button onClick={props.updateModal} className="mr-6 rounded-xl bg-rose-500 px-5 py-3 font-bold text-white">
@@ -38,10 +38,10 @@ const HabitModal = (props: any) => {
             </button>
           </Card.Header>
             <Card.Body>
-                <div className="flex flex-col gap-3 items-center justify-between">
+                <div className="flex flex-col gap-3 items-center  justify-between">
                     <div className='flex gap-5'>
                     <Input onChange={(e) => setHabitName(e.target.value)} className="w-50" label="Habit Name" />
-                    <Input className="w-50" label="Goal" />
+                    <Input className="w-50 " label="Goal" />
 
                     </div>
                     <div className='flex gap-5'>
@@ -56,7 +56,7 @@ const HabitModal = (props: any) => {
                         <div className='relative'>
 
                         <input onChange={(e) => setActiveDays({...activeDays, [e.target.value] : e.target.checked})} className='appearance-none peer h-4 w-4 p-4 rounded-full flex items-center justify-center   bg-gray-200 checked:bg-rose-500' type="checkbox" name="checkbox" id="checkbox" value={day}/>
-                        <label className='pointer-events-none inset-0 flex items-center justify-center absolute font-bold  peer-checked:text-white'  htmlFor="checkbox">
+                        <label className='pointer-events-none inset-0 flex items-center justify-center absolute font-bold dark:text-black peer-checked:text-white'  htmlFor="checkbox">
                             {day}
                             </label>
                         </div>

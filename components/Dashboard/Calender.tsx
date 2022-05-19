@@ -28,6 +28,7 @@ const Calender = (props: Props) => {
 }
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault()
     setChecked({
       [e.target.id]: {
         ...checked[e.target.id],

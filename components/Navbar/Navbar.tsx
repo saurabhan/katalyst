@@ -1,3 +1,4 @@
+import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
@@ -7,12 +8,13 @@ import { useAuth } from '../../context/auth-context'
 interface Props {}
 
 const Navbar = (props: Props) => {
+  const {theme, setTheme} = useTheme()
     const [themetoggle, setThemetoggle] = useState(true)
     const { user, logout } = useAuth()
     const router = useRouter()
 
   return (
-    <nav className='container mx-auto flex justify-between items-center p-6'>
+    <nav className=' container mx-auto flex justify-between items-center p-6'>
         <Link href="/" >
            <h1 className='text-2xl tracking-wider uppercase font-bold cursor-pointer'>Katalyst</h1>
         </Link>
@@ -31,7 +33,7 @@ const Navbar = (props: Props) => {
         </div>
         }
         <div className='flex items-center gap-x-8'>
-            <button onClick={() => setThemetoggle(!themetoggle)}>{themetoggle === true ? <HiMoon/> : <HiSun/>}</button>
+            <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>{theme === 'dark' ?  <HiMoon/> : <HiSun/>}</button>
             {user ? 
             <button className='font-bold hover:text-pink-400 transition-all ' onClick={() => {logout()}}>Log Out</button> :
             <button className='font-bold hover:text-pink-400 transition-all ' onClick={() => router.push('/login')}>Log in</button>

@@ -9,10 +9,13 @@ interface Props {}
 const dashboard = (props: Props) => {
   return (
     <>
+    <div className="dark:bg-gray-900 dark:text-white">
+
         <Navbar/>
         <DashboardHeader/>
         <Stats/>
         <Dashboard/>
+    </div>
     </>
   )
 }

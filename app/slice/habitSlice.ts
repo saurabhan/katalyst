@@ -19,6 +19,7 @@ const initialState: Habit = {
         swim : {
             day16 : true,
             day17 : true,
+            day18 : false,
             day21 : true,
         },
         run : {

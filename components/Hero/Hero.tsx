@@ -6,7 +6,7 @@ interface Props {}
 
 const Hero = (props: Props) => {
   return (
-    <section className="relative flex h-screen w-full justify-center">
+    <section className="dark:text-white relative flex h-screen w-full justify-center">
       <div className="z-50 space-y-6 pt-24 text-center antialiased">
         <h1 className="text-5xl font-bold sm:text-8xl">Powerful Habits</h1>
         <h1 className="text-5xl font-bold sm:text-8xl">Powerful People</h1>
@@ -14,13 +14,13 @@ const Hero = (props: Props) => {
           Katalyst is a minimal and powerfull habit tracker which help you
           achieve your goals.
         </p>
-        <div className="  flex flex-col items-center justify-center gap-5 pt-24 md:flex-row">
+        <div className="  flex flex-col items-center justify-center gap-5 pt-15 md:flex-row">
           <Input
             size="xl"
             width="20rem"
             placeholder="Enter your email address"
           ></Input>
-          <button className="rounded-xl bg-pink-500 py-3 px-4 font-bold text-white shadow-sm shadow-pink-300 transition-all hover:scale-105 hover:shadow-md active:scale-95">
+          <button className="rounded-xl bg-pink-500 py-3 px-4  font-bold text-white shadow-sm shadow-pink-300 transition-all hover:scale-105 hover:shadow-md active:scale-95">
             Subscribe
           </button>
         </div>

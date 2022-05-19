@@ -29,12 +29,13 @@ interface Props {}
     }
   })
 
-  const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  const weekdays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
   return (
-    <div className="bg-white shadow overflow-y-scroll sm:rounded-md">
-      <div className='flex  flex-wrap  gap-5 md:px-6 justify-between items-center'>
+    <div className="dark:bg-gray-900 dark:text-white">
+    
+      <div className='flex  flex-wrap  gap-5 md:px-2 justify-between items-center'>
         <div className='px-4 font-semibold'>MAY</div>
-        <div className='flex  gap-5 px-5 md:gap-9 md:px-7'>
+        <div className='flex  gap-5 px-5 md:gap-9 md:mr-10'>
 
       {weekdays.map((day, index) => (
 
@@ -42,17 +43,18 @@ interface Props {}
           ))}
         </div>
           </div>
+    <div className="bg-white shadow dark:bg-gray-900 overflow-y-scroll sm:rounded-md">
     <ul role="list" className="divide-y divide-gray-200">
       {
       habitname.length > 0 ? 
       habitname?.map((element:string) => (
         <li key={element}>
-          <a href="#" className="block hover:bg-gray-50">
+          <div className="block dark:hover:bg-gray-700 hover:bg-gray-50">
             <div className="px-4 py-4 flex items-center sm:px-6">
               <div className="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
                 <div className="truncate">
                   <div className="flex text-sm">
-                    <p className="font-medium text-rose-600 truncate">{element}</p>
+                    <p className="font-medium dark:text-rose-300 text-rose-600 truncate">{element}</p>
                   </div>
                 
                 </div>
@@ -65,7 +67,7 @@ interface Props {}
               <div className="ml-5 flex-shrink-0">
               </div>
             </div>
-          </a>
+          </div>
         </li>
       ))
       :
@@ -73,6 +75,7 @@ interface Props {}
         <h1 className='font-bold text-2xl'>Please add some Habits</h1> </div>
     }
     </ul>
+  </div>
   </div>
   )
 }
