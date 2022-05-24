@@ -1,26 +1,33 @@
 import { Card, Input } from '@nextui-org/react'
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector,} from 'react-redux'
 import { addHabit } from '../../app/slice/habitSlice'
 import { RootState } from '../../app/store'
 import { useAuth } from '../../context/auth-context'
+import { formatISO, parseISO } from 'date-fns'
 
-interface Props {}
+interface Props {
+  uid : string
+  habitName : string
+  habitDescription : string
+  habitFrequency : string
+  startDate : string
+  endDate : string
+}
 
 const HabitModal = (props: any) => {
-
+    const habits = useSelector((state : RootState) => state.habits)
+    
     const dispatch = useDispatch()
     const {user} = useAuth()
     const uid = user?.uid
-    const [habitName, setHabitName] = React.useState<string>('')
-    const [startDate, setStartDate] = React.useState<string>('')
-    const [endDate, setEndDate] = React.useState<string>('')
+    const [habitName, setHabitName] = React.useState<string>(props.habitname)
+    const [startDate, setStartDate] = React.useState<string>(habits.startDate!)
+    const [endDate, setEndDate] = React.useState<string>(habits.endDate!)
     const [activeDays, setActiveDays] = React.useState<string[]>([])
     const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    console.log(habitName)
     
-
-
-    console.log(startDate, endDate)
     const data =  {
             uid,
             habitName,
@@ -30,9 +37,11 @@ const HabitModal = (props: any) => {
 
 
   return (
-    <Card className="absolute inset-0 py-5 dark:bg-gray-500 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+    <Card className="absolute inset-0 py-5  dark:bg-gray-500 bg-white shadow rounded-lg  sm:p-6">
           <Card.Header className="flex justify-between">
-            <h1 className="text-3xl font-bold">Add New Habits</h1>
+            <h1 className="text-3xl font-bold">
+              {habitName ? habitName : 'Add Habit'}
+            </h1>
             <button onClick={props.updateModal} className="mr-6 rounded-xl bg-rose-500 px-5 py-3 font-bold text-white">
               Close
             </button>
@@ -40,14 +49,14 @@ const HabitModal = (props: any) => {
             <Card.Body>
                 <div className="flex flex-col gap-3 items-center  justify-between">
                     <div className='flex gap-5'>
-                    <Input onChange={(e) => setHabitName(e.target.value)} className="w-50" label="Habit Name" />
-                    <Input className="w-50 " label="Goal" />
+                    <Input onChange={(e) => setHabitName(e.target.value)} className="w-50" label="Habit Name" value={habitName} />
+                    <Input className="w-50 " label="Goal" value={habitName}/>
 
                     </div>
                     <div className='flex gap-5'>
                         
-                    <Input onChange={(e) => setStartDate(e.target.value)} type="date" className="w-50" label="Start Date" />
-                    <Input onChange={(e) => setEndDate(e.target.value)} type="date" className="w-50" label="End Date" />
+                    <Input onChange={(e) => setStartDate(e.target.value)} type="date" className="w-50" label="Start Date"   value={startDate}/>
+                    <Input onChange={(e) => setEndDate(e.target.value)} type="date" className="w-50" label="End Date"  value={endDate}  />
                     </div>
                     <p className="w-50" >Days on which you want to perform the habit</p>
                     <div className="flex gap-5">

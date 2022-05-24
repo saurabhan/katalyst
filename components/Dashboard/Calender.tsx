@@ -28,21 +28,28 @@ const Calender = (props: Props) => {
 }
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault()
     setChecked({
       [e.target.id]: {
         ...checked[e.target.id],
         ['day'+e.target.value]: e.target.checked,
       },
     })
-    dispatch(addProgress(checked))
+    dispatch(addProgress({
+      [e.target.id]: {
+        ...checked[e.target.id],
+        ['day'+e.target.value]: e.target.checked,
+      },
+    }))
   }
 
   useEffect(() => {
     daysWeek()
   }, [])
+
+ 
+
   return (
-    <div className="grid" key={props.name}>
+    <div className="grid -z-[0]" key={props.name}>
       <div className="grid grid-cols-7 gap-6">
               {
                   days ? days.map((day) => (

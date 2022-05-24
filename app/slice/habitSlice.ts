@@ -34,8 +34,8 @@ const initialState: Habit = {
         }
     },
     isActive: [],
-    startDate: "2020-01-01",
-    endDate: "2020-12-31",
+    startDate: "2022-01-01",
+    endDate: "2022-12-31",
 
 };
 

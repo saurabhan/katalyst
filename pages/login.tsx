@@ -10,7 +10,7 @@ const login = (props: Props) => {
     const [email, setEmail] = React.useState<string | ''>('')
     const [password, setPassword] = React.useState<string | ''>('')
     const [username, setUsername] = React.useState<string |''>('')
-    const { user, signIn, signUp } = useAuth()
+    const { signIn, signUp } = useAuth()
     const [login, setLogin] = React.useState<boolean>(true)
     
 
