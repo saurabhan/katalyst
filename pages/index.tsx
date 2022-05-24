@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   const {user} = useAuth()
 
   return (
-    <div className=''>
+    <div className="dark:bg-gray-900 dark:text-white">
         <Head>
           <title>Katalyst | Habit Tracker</title>
         </Head>

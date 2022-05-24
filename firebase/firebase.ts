@@ -1,5 +1,6 @@
 import { getApp, initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
+import { getDatabase } from 'firebase/database';
 import { getAnalytics } from 'firebase/analytics';
 import { getAuth } from 'firebase/auth';
 const firebaseCoins = {
@@ -13,5 +14,5 @@ const firebaseCoins = {
 }
 
 export const app = getApp.length > 0 ? getApp() : initializeApp(firebaseCoins)
-export const db = getFirestore.length > 0 ? getFirestore() : getFirestore(app)
+export const db = getDatabase(app) 
 export const auth = getAuth(app)

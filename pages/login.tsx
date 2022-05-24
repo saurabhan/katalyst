@@ -10,7 +10,7 @@ const login = (props: Props) => {
     const [email, setEmail] = React.useState<string | ''>('')
     const [password, setPassword] = React.useState<string | ''>('')
     const [username, setUsername] = React.useState<string |''>('')
-    const { user, signIn, signUp } = useAuth()
+    const { signIn, signUp } = useAuth()
     const [login, setLogin] = React.useState<boolean>(true)
     
 
@@ -24,14 +24,14 @@ const login = (props: Props) => {
     }
   return (
     <>
-    <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="dark:bg-gray-900 dark:text-white min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
             <h1 className="text-2xl font-bold text-center mx-auto h-12 w-auto">KATALYST</h1>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign {login ? 'in' : 'Up'} to your account</h2>
         </div>
 
         <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div className="bg-white dark:bg-gray-600 py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form className="space-y-6 justify-center" action="#" method="POST">
                 <div className='flex flex-col space-y-10 justify-center'>
                   {login ? "" :
@@ -49,20 +49,20 @@ const login = (props: Props) => {
                     type="checkbox"
                     className="h-4 w-4 text-rose-600 focus:ring-rose-500 border-gray-300 rounded"
                   />
-                  <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                  <label htmlFor="remember-me" className="ml-2 block text-sm dark:text-white text-gray-900">
                     Remember me
                   </label>
                 </div>
 
                 <div className="text-sm">
-                  <a href="#" className="font-medium text-rose-600 hover:text-rose-500">
+                  <a href="#" className="dark:text-rose-300 font-medium text-rose-600 hover:text-rose-500">
                     Forgot your password?
                   </a>
                 </div>
               </div>
                 <div className="text-sm">
                   <Link href="login" shallow={true} >
-                    <a onClick={() => setLogin(!login)}  className="font-medium text-center text-rose-600 hover:text-rose-500">{login ? 'Create a new Account' : 'Sign In to Exisitng Account'}</a>
+                    <a onClick={() => setLogin(!login)}  className="font-medium text-center dark:text-rose-300 text-rose-600 hover:text-rose-500">{login ? 'Create a new Account' : 'Sign In to Exisitng Account'}</a>
                   </Link>
                 </div>
 

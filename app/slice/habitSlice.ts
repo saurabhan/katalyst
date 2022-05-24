@@ -19,6 +19,7 @@ const initialState: Habit = {
         swim : {
             day16 : true,
             day17 : true,
+            day18 : false,
             day21 : true,
         },
         run : {
@@ -33,8 +34,8 @@ const initialState: Habit = {
         }
     },
     isActive: [],
-    startDate: "2020-01-01",
-    endDate: "2020-12-31",
+    startDate: "2022-01-01",
+    endDate: "2022-12-31",
 
 };
 

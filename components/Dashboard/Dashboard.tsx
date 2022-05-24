@@ -14,9 +14,9 @@ const Dashboard = (props: Props) => {
   }
 
   return (
-    <Grid.Container className="container mx-auto relative" gap={1.5} >
+    <Grid.Container className=" container mx-auto relative" gap={1.5} >
       <Grid xs={12} md={8}>
-        <Card className=" py-5 bg-white max-h-[28rem] shadow rounded-lg overflow-hidden sm:p-6">
+        <Card className=" py-5 dark:bg-gray-900 bg-white min-h-[28rem] shadow rounded-lg overflow-hidden sm:p-6">
           <Card.Header className="flex justify-between">
             <h1 className="text-3xl font-bold">Daily Habits</h1>
             <button onClick={ModalHandler} className="mr-6 rounded-xl bg-rose-500 px-5 py-3 font-bold text-white">
