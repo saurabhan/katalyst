@@ -64,8 +64,19 @@ export const habitSlice = createSlice({
                 ...action.payload,
             };
         },
+        updateHabit: (state, action: PayloadAction<any>) => {
+            if(action.payload.index === -1){
+                console.log('habit does not exist')
+                return state;
+            }
+            state.user = action.payload.uid
+            state.habitNames?.splice(action.payload.index!, 1, action.payload.habitName);
+            state.startDate = action.payload.startDate
+            state.endDate = action.payload.endDate
+
+        }
     }
 });
 
-export const { addHabit, removeHabit, addProgress } = habitSlice.actions;
+export const { addHabit, removeHabit, addProgress, updateHabit } = habitSlice.actions;
 export default habitSlice.reducer;

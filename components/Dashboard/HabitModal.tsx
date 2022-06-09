@@ -1,7 +1,7 @@
 import { Card, Input } from '@nextui-org/react'
 import React from 'react'
 import { useDispatch, useSelector,} from 'react-redux'
-import { addHabit } from '../../app/slice/habitSlice'
+import { addHabit, updateHabit } from '../../app/slice/habitSlice'
 import { RootState } from '../../app/store'
 import { useAuth } from '../../context/auth-context'
 import { formatISO, parseISO } from 'date-fns'
@@ -26,9 +26,11 @@ const HabitModal = (props: any) => {
     const [endDate, setEndDate] = React.useState<string>(habits.endDate!)
     const [activeDays, setActiveDays] = React.useState<string[]>([])
     const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-
+    const index = habits.habitNames?.indexOf(props.habitname)
+    
     
     const data =  {
+            index,
             uid,
             habitName,
             startDate,
@@ -72,7 +74,7 @@ const HabitModal = (props: any) => {
                         </div>))}
 
                     </div>
-                    <button onClick={() => dispatch(addHabit(data))} className="mr-6 rounded-xl bg-rose-500 px-5 py-3 font-bold text-white">Create Habit</button>
+                    <button onClick={() => dispatch(updateHabit(data))} className="mr-6 rounded-xl bg-rose-500 px-5 py-3 font-bold text-white">Create Habit</button>
                     </div>
             </Card.Body>
         </Card>
