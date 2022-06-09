@@ -10,7 +10,7 @@ const login = (props: Props) => {
     const [email, setEmail] = React.useState<string | ''>('')
     const [password, setPassword] = React.useState<string | ''>('')
     const [username, setUsername] = React.useState<string |''>('')
-    const { signIn, signUp } = useAuth()
+    const { signIn, signUp, user, logout } = useAuth()
     const [login, setLogin] = React.useState<boolean>(true)
     
 
@@ -21,6 +21,26 @@ const login = (props: Props) => {
       } else {
         signUp(email, password, username!)
       }
+    }
+
+    if(user) {
+        return (
+          <div className="dark:bg-gray-900 dark:text-white min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-md">
+            <h1 className="text-2xl font-bold text-center mx-auto h-12 w-auto">KATALYST</h1>
+          <div>
+            <h1 className='font-bold text-2xl p-2'>Welcome, {user.displayName}</h1>
+          
+          <button
+          onClick={() => logout()}
+        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500"
+      >
+        Logout
+      </button>
+      </div>
+      </div>
+      </div>
+        )
     }
   return (
     <>
