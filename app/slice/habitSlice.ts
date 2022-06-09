@@ -66,8 +66,13 @@ export const habitSlice = createSlice({
         },
         updateHabit: (state, action: PayloadAction<any>) => {
             if(action.payload.index === -1){
-                console.log('habit does not exist')
-                return state;
+                if(state.habitNames?.includes(action.payload.habitName)){
+                    return state;
+                }
+                state.user = action.payload.uid
+                state.habitNames?.push(action.payload.habitName);
+                state.startDate = action.payload.startDate
+                state.endDate = action.payload.endDate
             }
             state.user = action.payload.uid
             state.habitNames?.splice(action.payload.index!, 1, action.payload.habitName);
