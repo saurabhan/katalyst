@@ -44,13 +44,19 @@ export const habitSlice = createSlice({
     initialState,
     reducers: {
         addHabit: (state, action: PayloadAction<any>) => {
+            if(state.habitNames?.includes(action.payload.habitName)){
+                console.log('already exists')
+                return state;
+            }
             state.user = action.payload.uid
             state.habitNames?.push(action.payload.habitName);
             state.startDate = action.payload.startDate
             state.endDate = action.payload.endDate
     },
         removeHabit(state, action: PayloadAction<string>) {
-            state.habitNames?.splice(state.habitNames.indexOf(action.payload), 1);
+            const newState = state.habitNames?.filter((habit) => habit !== action.payload);
+            state.habitNames = newState;
+
         },
        addProgress(state, action: PayloadAction<{}>) {
             state.progress = {

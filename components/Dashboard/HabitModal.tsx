@@ -26,7 +26,7 @@ const HabitModal = (props: any) => {
     const [endDate, setEndDate] = React.useState<string>(habits.endDate!)
     const [activeDays, setActiveDays] = React.useState<string[]>([])
     const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-    console.log(habitName)
+
     
     const data =  {
             uid,
