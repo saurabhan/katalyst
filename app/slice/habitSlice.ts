@@ -44,13 +44,19 @@ export const habitSlice = createSlice({
     initialState,
     reducers: {
         addHabit: (state, action: PayloadAction<any>) => {
+            if(state.habitNames?.includes(action.payload.habitName)){
+                console.log('already exists')
+                return state;
+            }
             state.user = action.payload.uid
             state.habitNames?.push(action.payload.habitName);
             state.startDate = action.payload.startDate
             state.endDate = action.payload.endDate
     },
         removeHabit(state, action: PayloadAction<string>) {
-            state.habitNames?.splice(state.habitNames.indexOf(action.payload), 1);
+            const newState = state.habitNames?.filter((habit) => habit !== action.payload);
+            state.habitNames = newState;
+
         },
        addProgress(state, action: PayloadAction<{}>) {
             state.progress = {
@@ -58,8 +64,24 @@ export const habitSlice = createSlice({
                 ...action.payload,
             };
         },
+        updateHabit: (state, action: PayloadAction<any>) => {
+            if(action.payload.index === -1){
+                if(state.habitNames?.includes(action.payload.habitName)){
+                    return state;
+                }
+                state.user = action.payload.uid
+                state.habitNames?.push(action.payload.habitName);
+                state.startDate = action.payload.startDate
+                state.endDate = action.payload.endDate
+            }
+            state.user = action.payload.uid
+            state.habitNames?.splice(action.payload.index!, 1, action.payload.habitName);
+            state.startDate = action.payload.startDate
+            state.endDate = action.payload.endDate
+
+        }
     }
 });
 
-export const { addHabit, removeHabit, addProgress } = habitSlice.actions;
+export const { addHabit, removeHabit, addProgress, updateHabit } = habitSlice.actions;
 export default habitSlice.reducer;

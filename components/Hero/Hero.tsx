@@ -1,10 +1,12 @@
 import { Button, Input } from '@nextui-org/react'
 import React from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 interface Props {}
 
 const Hero = (props: Props) => {
+  const router = useRouter()
   return (
     <section className="dark:text-white relative flex h-screen w-full justify-center">
       <div className="z-50 space-y-6 pt-24 text-center antialiased">
@@ -15,13 +17,13 @@ const Hero = (props: Props) => {
           achieve your goals.
         </p>
         <div className="  flex flex-col items-center justify-center gap-5 pt-15 md:flex-row">
-          <Input
+          {/* <Input
             size="xl"
             width="20rem"
             placeholder="Enter your email address"
-          ></Input>
-          <button className="rounded-xl bg-pink-500 py-3 px-4  font-bold text-white shadow-sm shadow-pink-300 transition-all hover:scale-105 hover:shadow-md active:scale-95">
-            Subscribe
+          ></Input> */}
+          <button onClick={() => router.push("/login")} className="rounded-xl bg-pink-500 py-3 px-4  font-bold text-white shadow-sm shadow-pink-300 transition-all hover:scale-105 hover:shadow-md active:scale-95">
+            Get Started
           </button>
         </div>
       </div>
